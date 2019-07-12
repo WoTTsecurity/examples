@@ -1,0 +1,14 @@
+version: '2'
+services:
+  appserver:
+    build: appserver/
+    volumes:
+    - ./appserver/whitelist.txt:/whitelist.txt:ro
+    - ./appserver:/usr/src/app:ro
+  nginx:
+    build: nginx/
+    ports:
+    - '80:80'
+    - '443:443'
+    volumes:
+    - /opt/wott/certs:/opt/wott/certs:ro
