@@ -1,4 +1,10 @@
-# Mosquitto MQTT client
+# Code Snippets for Mosquitto MQTT Client
+
+Contains:
+
+* Publisher
+* Subscriber
+* Dockerfile to configure environment 
 
 ## Pre-req's
 
