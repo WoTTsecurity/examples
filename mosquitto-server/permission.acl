@@ -1,0 +1,20 @@
+# This device can read and write
+# This is a good default 
+#user SomeDeviceId.d.wott.local
+#topic readwrite wott/temperature
+
+# This device can only write
+# It is a good idea to give these permissions to the publisher
+#user SomeDeviceId.d.wott.local
+#topic write wott/temperature
+
+# This device can only read
+# It is a good idea to give these permissions to the subscriber
+#user SomeDeviceId.d.wott.local
+#topic read wott/temperature
+
+# This user has full access
+# Generally not reccommended 
+#user SomeDeviceId.d.wott.local
+#topic read #
+#topic write #
