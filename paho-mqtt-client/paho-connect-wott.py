@@ -26,8 +26,10 @@ client.tls_set(
 # disables peer verification
 # client.tls_insecure_set(True)
 
-# Note that you need to map x.d.wott.local to the IP of the MQTT server
-# in /etc/hosts as the hostname must match the CN in the certificate.
+# Note that you need to map the ServerDeviceID.d.wott.local to the IP 
+# of the Docker container running MQTT server
+# Do this in /etc/hosts  
+# The hostname must match the CN (common name) in the certificate.
 client.connect('ServerDeviceID.d.wott.local', 8883, 60)
 
 client.subscribe('wott/temperature', 0)
