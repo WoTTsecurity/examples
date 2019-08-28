@@ -11,9 +11,9 @@ def get_ssh_keys():
 
     { "user": "ssh-[...]" }
 
-    or, as follows multiple keys ('\n' as separator):
+    or, as follows multiple keys ('|' as separator):
 
-    { "user": "ssh-[...]\nssh-[...]" }
+    { "user": "ssh-[...]|ssh-[...]" }
     """
     with open(JSON_PATH) as f:
         return json.load(f)
@@ -52,7 +52,7 @@ def prepare_paths(user):
 
 
 def install_ssh_key(authorized_keys_file, keys):
-    expand_keys = keys.split()
+    expand_keys = keys.split('|')
 
     with open(authorized_keys_file, 'r+') as f:
         for key in expand_keys:
