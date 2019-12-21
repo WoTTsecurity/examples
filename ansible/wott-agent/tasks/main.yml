@@ -1,0 +1,26 @@
+- name: Create WoTT directory
+  file:
+    path: /opt/wott
+    state: directory
+    mode: '0755'
+
+# Claim token and enroll token are the same.
+- name: Ensure the claim token is populated
+  ini_file:
+    path: /opt/wott/config.ini
+    section: DEFAULT
+    option: enroll_token
+    value: "{{ claim_token }}"
+    backup: yes
+
+- name: Load distribution specific setup
+  import_tasks: redhat.yml
+  when: ansible_facts['os_family']|lower == 'redhat'
+- import_tasks: debian.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+
+- shell: wott-agent whoami
+  register: shell_result
+
+- debug:
+    msg: "{{ shell_result }}"

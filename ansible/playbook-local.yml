@@ -1,0 +1,5 @@
+- name: "Ansible playbook example"
+  hosts: all
+  become: yes
+  roles:
+    - wott-agent
