@@ -10,7 +10,6 @@
 
 ### Pre-requisites
 
-Install:
  * Vagrant
  * Ansible (pinned in `requirements.txt`)
 
