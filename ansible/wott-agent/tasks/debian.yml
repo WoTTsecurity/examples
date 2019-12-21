@@ -1,0 +1,34 @@
+- name: Update the apt cache if older than an hour
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Install a list of packages
+  apt:
+    pkg:
+    - apt-transport-https
+    - debian-archive-keyring
+
+- name: Install Package Cloud's GPG key
+  apt_key:
+    url: https://packagecloud.io/wott/agent/gpgkey
+    state: present
+
+- name: Add Package Cloud APT repository
+  apt_repository:
+    repo: "deb https://packagecloud.io/wott/agent/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main"
+    state: present
+
+- name: Add Package Cloud APT repository (src)
+  apt_repository:
+    repo: "deb-src https://packagecloud.io/wott/agent/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main"
+    state: present
+
+- name: Update the apt cache after adding Package Cloud repository
+  apt:
+    update_cache: yes
+
+- name: Install wott-agent
+  apt:
+    pkg:
+    - wott-agent

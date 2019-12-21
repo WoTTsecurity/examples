@@ -103,3 +103,4 @@ venv.bak/
 # mypy
 .mypy_cache/
 nginx-with-mtls-and-appserver/appserver/whitelist.txt
+.vagrant
