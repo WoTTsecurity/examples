@@ -1,4 +1,4 @@
-# Code Snippets for Nginx with MTLS and Appserver
+# Code Snippets for Nginx with mTLS and Appserver
 
 Contains:
 
